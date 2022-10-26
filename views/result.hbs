@@ -5,13 +5,10 @@
     alt=""
   />
   <h1 class="display-4">Success! Please use this link:</h1>
-  <input
-    type="url"
-    class="form-control"
-    name="urlCreated"
+  <a
+    href="http://localhost:3000/"
     id="urlCreated"
-    value="http://localhost:3000/"
-  />
+  >http://localhost:3000/result</a>
   <button
     onclick="copy()"
     type="submit"
@@ -20,6 +17,5 @@
 </div>
 <script>
   function copy() { const copyText = document.querySelector("#urlCreated");
-  copyText.select(); copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value); alert("URL copied"); }
+  navigator.clipboard.writeText(copyText.textContent); alert("URL copied"); }
 </script>
