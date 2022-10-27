@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 const URL = require("./models/URL");
+const shortenURL = require("./utilities/shortenURL");
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -32,7 +33,8 @@ app.get("/", (req, res) => {
 
 app.post("/URL", (req, res) => {
   const originalURL = req.body.originalURL;
-  URL.create({ originalURL })
+  const shortURL = shortenURL();
+  URL.create({ originalURL, shortURL })
     .then(() => res.redirect("/result"))
     .catch((error) => console.log(error));
 });
