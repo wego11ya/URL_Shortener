@@ -31,16 +31,31 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/URL", (req, res) => {
+app.post("/result", (req, res) => {
+  // 如果資料庫裡面已經有原本網址則回傳原本資料，若沒有則新增資料
   const originalURL = req.body.originalURL;
   const shortURL = shortenURL();
-  URL.create({ originalURL, shortURL })
-    .then(() => res.redirect("/result"))
-    .catch((error) => console.log(error));
+
+  URL.findOne({ originalURL })
+    .then((url) => {
+      return url ? url : URL.create({ originalURL, shortURL });
+    })
+    .then((url) => {
+      res.render("result", {
+        shortURL: url.shortURL,
+        originalURL: url.originalURL,
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
-app.get("/result", (req, res) => {
-  res.render("result");
+app.get("/:shortURL", (req, res) => {
+  const shortURL = req.params.shortURL;
+  URL.findOne({ shortURL })
+    .then((url) => {
+      res.redirect("url.shortURL");
+    })
+    .catch((err) => console.log(err));
 });
 
 // 設定 port 3000
