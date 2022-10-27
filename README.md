@@ -1,7 +1,8 @@
 # URL Shortener
 
-![URL Shortener](./public/images/screenshot_result.PNG)
-![URL Shortener](./public/images/screenshot_myurls.PNG)
+![URL_Shortener](./public/images/screenshot_index.PNG)
+![URL_Shortener](./public/images/screenshot_result.PNG)
+![URL_Shortener](./public/images/screenshot_myurls.PNG)
 
 ## Introduction
 
@@ -36,7 +37,7 @@ An URL shortener which can shorten your URLs.
    npm run start
    ```
 
-6. If you see the message as below, then open your browser and enter the URL.
+6. If you see the message as below, then open your browser and enter "http://localhost:3000".
 
    ```
    URL Shortener is running on http://localhost:3000
