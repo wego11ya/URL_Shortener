@@ -13,6 +13,7 @@ An URL shortener which can shorten your URLs.
 - Just input an URL and press Shorten button then you will get a short URL.
 - The shortened URL can be copied by Copy button.
 - Press the shortened URL then you can be redirected to the original URL.
+- Press "My URLs" on the right top to see all hostory URLs.
 
 ## How to Use
 
