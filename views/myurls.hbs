@@ -1,0 +1,13 @@
+<h1 class="display-4">My URLs</h1>
+
+<ul class="list-group">
+  {{#each urls}}
+    <li class="list-group-item">
+      <a
+        href="http://localhost:3000/{{this.shortURL}}"
+        target="_blank"
+      >http://localhost:3000/{{this.shortURL}}</a>
+      <p>{{this.originalURL}}</p>
+    </li>
+  {{/each}}
+</ul>

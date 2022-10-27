@@ -1,20 +1,25 @@
-<div class="container">
+<div class="d-flex flex-column align-items-center">
   <h1 class="display-1">URL Shortener</h1>
   <img
     src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png"
     alt=""
+    width="300"
+    height="auto"
   />
-  <h1 class="display-4">Success! Please use this link:</h1>
-  <a
-    href="{{originalURL}}"
-    id="urlCreated"
-  >http://localhost:3000/{{shortURL}}</a>
-  <button
-    onclick="copy()"
-    type="submit"
-    class="btn btn-primary btn-lg mt-4"
-  >Copy</button>
+  <h3 class="mt-3">Success! Please use this link:</h3>
+  <a href="{{originalURL}}" id="urlCreated" target="_blank">
+    <h3 class="">http://localhost:3000/{{shortURL}}</h3>
+  </a>
+
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button
+      onclick="copy()"
+      type="submit"
+      class="btn btn-info btn-lg mt-4"
+    >Copy</button>
+  </div>
 </div>
+
 <script>
   function copy() { const copyText = document.querySelector("#urlCreated");
   navigator.clipboard.writeText(copyText.textContent); alert("URL copied"); }
